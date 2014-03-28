@@ -8,5 +8,13 @@
     script(type='text/javascript', src='http://code.jquery.com/jquery-2.1.0.min.js')
     script(type='text/javascript', src='/bootstrap/js/bootstrap.min.js')
     script(src="http://code.highcharts.com/highcharts.js")
-    
-block footer
+    script(type='text/javascript').
+        $(document).ready(function() {
+            $(".form-control").focus(function () {
+                $(this).closest(".textbox-wrap").addClass("focused");
+            }).blur(function () {
+                $(this).closest(".textbox-wrap").removeClass("focused");
+            });
+        });
+
+block footer-login

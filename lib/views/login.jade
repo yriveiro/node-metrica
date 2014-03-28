@@ -1,0 +1,39 @@
+extends layout-login
+
+block content
+    section.section
+        div.container
+            div.login-form-section
+                div.login-content
+                    form(action='/login', method='post')
+                        div.section-title
+                            h3.blue
+                                span
+                                    | Login In your Account
+
+                        - if (message != '')
+                            div.alert.alert-danger #{message}
+                        div.textbox-wrap
+                            div.input-group
+                                span.input-group-addon
+                                    i.fa.fa-user
+                                input.form-control(type='email', required='required', name='email')
+                        div.textbox-wrap
+                            div.input-group
+                                span.input-group-addon
+                                    i.fa.fa-key
+                                input.form-control(type='password', required='required', name='password')
+
+
+                        div.login-form-action.clearfix
+                            button.btn.btn-success.pull-right.green-btn(type='submit')
+                                | Login
+                div.login-form-links
+                    h4.blue
+                        | Do not have an Account?
+                    span
+                        |  No worry
+                    a.blue(href='/signup')
+                        |  Click here&nbsp;
+                    span
+                        | to register
