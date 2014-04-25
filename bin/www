@@ -1,9 +1,35 @@
 #!/usr/bin/env node
+
+"use strict";
+
 var debug = require('debug')('node-metrica-dashboard');
+var request = require('request');
 var app = require('../server');
 
 app.set('port', process.env.PORT || 3001);
 
 var server = app.listen(app.get('port'), function() {
-  debug('Express server listening on port ' + server.address().port);
+    debug('Express server listening on port ' + server.address().port);
+});
+
+
+//Move to proper location.
+
+var io = require('socket.io').listen(server);
+
+io.sockets.on('connection', function (client) {
+    console.log("Client connected...");
+
+    client.on('chat-start', function(data) {
+        setInterval(function () {
+            request('http://192.168.2.17:3000/os/' + data.graph , function (err, code, body) {
+                if (err) {
+                    client.emit('chart-new-data', {metrics: {}, code: 500});
+                }
+
+                client.emit('chart-new-data', {metrics: JSON.parse(body), code: code});
+            })
+
+        }, 1000);
+    });
 });

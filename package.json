@@ -25,7 +25,8 @@
     "mongoose": "^3.8.8",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^0.4.0",
-    "bcrypt-nodejs": "0.0.3"
+    "bcrypt-nodejs": "0.0.3",
+    "request": "^2.34.0"
   },
   "devDependencies": {
     "debug": "~0.7.4",
