@@ -15,6 +15,17 @@ module.exports = {
             }
         }
     },
-    test: {},
+    test: {
+        mongo: {
+            db: 'mongodb://localhost/metrica_test',
+            options: {
+                server: {
+                    socketOptions: {
+                        keepAlive: 1
+                    }
+                }
+            }
+        }
+    },
     production: {}
 };
