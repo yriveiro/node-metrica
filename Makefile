@@ -1,4 +1,4 @@
-MOCHA_OPTS= --check-leaks
+MOCHA_OPTS= --check-leaks --globals lr
 REPORTER = dot
 
 check: test
