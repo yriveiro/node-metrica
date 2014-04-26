@@ -13,6 +13,12 @@ module.exports = {
                     }
                 }
             }
+        },
+        daemon: {
+            host: '192.168.6.195:3000'
+        },
+        app: {
+            port: 3001
         }
     },
     test: {
